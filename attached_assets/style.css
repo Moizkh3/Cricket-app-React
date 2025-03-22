@@ -1,0 +1,209 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Dark Background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #121212; /* Dark Theme */
+    color: white;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Hover Effect */
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Heading */
+h1 {
+    font-size: 22px;
+    color: #ffd700;
+    transition: color 0.3s ease-in-out;
+}
+
+h1:hover {
+    color: #ffcc00; /* Lighter Gold */
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 130px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: #2a2a2a;
+    color: white;
+    resize: none;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Focus Effect */
+textarea:focus {
+    background: #333;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.2);
+}
+
+/* Hide Scrollbar */
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+/* Shuffle Button */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #ffd700;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 0 8px rgba(206, 178, 19, 0.886);
+}
+
+/* Hover Effect */
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 5 5 10px rgba(236, 202, 8, 0.886);
+    background: #f3c305;
+}
+
+/* Ordered List - Scrollbar Hidden but Scrollable */
+ol {
+    margin-top: 10px;
+    padding: 0;
+    text-align: left;
+    list-style-position: inside;
+    max-height: 300px;
+    overflow-y: auto;
+
+    /* Hide Scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+ol::-webkit-scrollbar {
+    display: none;
+}
+
+/* List Items with Animation */
+ol li {
+    background: #222;
+    padding: 12px;
+    margin: 6px 0;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #ddd;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    word-wrap: break-word;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* List Hover Effect */
+ol li:hover {
+    transform: scale(1.05);
+    background: #333;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        width: 95%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    textarea {
+        height: 110px;
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    ol {
+        max-height: 250px;
+    }
+
+    ol li {
+        font-size: 15px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    textarea {
+        height: 100px;
+        font-size: 13px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    ol {
+        max-height: 200px;
+    }
+
+    ol li {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
