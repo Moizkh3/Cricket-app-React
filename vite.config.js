@@ -10,7 +10,9 @@ const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      include: "**/*.{jsx,js}",
+    }),
     runtimeErrorOverlay(),
     themePlugin(),
     ...(process.env.NODE_ENV !== "production" &&
@@ -33,4 +35,4 @@ export default defineConfig({
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
   },
-});
+}); 

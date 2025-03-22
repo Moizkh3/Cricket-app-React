@@ -4,14 +4,14 @@ import TeamDisplaySection from '@/components/TeamDisplaySection';
 import { fisherYatesShuffle } from '@/lib/utils/shuffle';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-const Home: React.FC = () => {
-  const [team1, setTeam1] = useState<string[]>([]);
-  const [team2, setTeam2] = useState<string[]>([]);
+const Home = () => {
+  const [team1, setTeam1] = useState([]);
+  const [team2, setTeam2] = useState([]);
   const [teamsGenerated, setTeamsGenerated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   
-  const showError = (message: string) => {
+  const showError = (message) => {
     setErrorMessage(message);
     // Auto hide error after 5 seconds
     setTimeout(() => {
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     }, 5000);
   };
   
-  const generateTeams = (players: string[]) => {
+  const generateTeams = (players) => {
     // Validation
     if (players.length < 2) {
       showError('Please enter at least 2 player names.');
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
     }, 1000);
   };
   
-  const shuffleBattingOrder = (inputPlayers?: string[]) => {
+  const shuffleBattingOrder = (inputPlayers) => {
     setIsLoading(true);
     
     setTimeout(() => {
@@ -179,4 +179,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Home; 

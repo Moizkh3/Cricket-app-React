@@ -1,13 +1,7 @@
 import React from 'react';
 import TeamCard from './TeamCard';
 
-interface TeamDisplaySectionProps {
-  team1Players: string[];
-  team2Players: string[];
-  visible: boolean;
-}
-
-const TeamDisplaySection: React.FC<TeamDisplaySectionProps> = ({ 
+const TeamDisplaySection = ({ 
   team1Players, 
   team2Players, 
   visible 
@@ -47,4 +41,4 @@ const TeamDisplaySection: React.FC<TeamDisplaySectionProps> = ({
   );
 };
 
-export default TeamDisplaySection;
+export default TeamDisplaySection; 

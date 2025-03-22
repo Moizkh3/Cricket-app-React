@@ -3,21 +3,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-interface PlayerInputSectionProps {
-  onGenerateTeams: (players: string[]) => void;
-  onShuffleBattingOrder: (players?: string[]) => void;
-  onReset: () => void;
-  teamsGenerated: boolean;
-}
-
-const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
+const PlayerInputSection = ({
   onGenerateTeams,
   onShuffleBattingOrder,
   onReset,
   teamsGenerated
 }) => {
   const [playerNames, setPlayerNames] = useState('');
-  const [playersArray, setPlayersArray] = useState<string[]>([]);
+  const [playersArray, setPlayersArray] = useState([]);
   const [hasPlayers, setHasPlayers] = useState(false);
 
   useEffect(() => {
@@ -185,4 +178,4 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
   );
 };
 
-export default PlayerInputSection;
+export default PlayerInputSection; 

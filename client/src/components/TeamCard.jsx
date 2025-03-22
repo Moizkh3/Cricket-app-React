@@ -1,13 +1,6 @@
 import React from 'react';
 
-interface TeamCardProps {
-  teamColor: 'blue' | 'orange';
-  teamName: string;
-  players: string[];
-  isBattingOrderOnly?: boolean;
-}
-
-const TeamCard: React.FC<TeamCardProps> = ({ 
+const TeamCard = ({ 
   teamColor, 
   teamName, 
   players, 
@@ -108,4 +101,4 @@ const TeamCard: React.FC<TeamCardProps> = ({
   );
 };
 
-export default TeamCard;
+export default TeamCard; 
