@@ -5,7 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface PlayerInputSectionProps {
   onGenerateTeams: (players: string[]) => void;
-  onShuffleBattingOrder: () => void;
+  onShuffleBattingOrder: (players?: string[]) => void;
   onReset: () => void;
   teamsGenerated: boolean;
 }
@@ -78,7 +78,16 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
         
         <TabsContent value="options" className="space-y-4">
           <div className="grid grid-cols-1 gap-4">
-            <div className="bg-[#f9f9f9] p-4 rounded-lg border border-gray-200">
+            <div 
+              className="bg-[#f9f9f9] p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-green-50 transition-colors relative"
+              onClick={hasPlayers ? handleGenerateTeams : undefined}
+              role="button"
+              aria-disabled={!hasPlayers}
+              style={{ opacity: hasPlayers ? 1 : 0.5 }}
+            >
+              {hasPlayers && (
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-green-500 rounded-full animate-pulse"></div>
+              )}
               <h3 className="text-md font-semibold mb-2 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-[#0E5626]" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0v-1h-1a1 1 0 110-2h1v-1a1 1 0 011-1z" />
@@ -86,9 +95,31 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
                 Generate Teams
               </h3>
               <p className="text-sm text-gray-600 mb-2">Split players into two balanced teams with randomized order</p>
+              {hasPlayers ? (
+                <div className="flex justify-end mt-2">
+                  <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">
+                    Click to activate
+                  </span>
+                </div>
+              ) : (
+                <div className="flex justify-end mt-2">
+                  <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">
+                    Enter players first
+                  </span>
+                </div>
+              )}
             </div>
             
-            <div className="bg-[#f9f9f9] p-4 rounded-lg border border-gray-200">
+            <div 
+              className="bg-[#f9f9f9] p-4 rounded-lg border border-gray-200 cursor-pointer hover:bg-red-50 transition-colors relative"
+              onClick={hasPlayers ? handleShuffleBattingOrder : undefined}
+              role="button"
+              aria-disabled={!hasPlayers}
+              style={{ opacity: hasPlayers ? 1 : 0.5 }}
+            >
+              {hasPlayers && (
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
+              )}
               <h3 className="text-md font-semibold mb-2 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-[#D32F2F]" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
@@ -96,6 +127,19 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
                 Shuffle Batting Order
               </h3>
               <p className="text-sm text-gray-600 mb-2">Randomize the batting order without changing teams</p>
+              {hasPlayers ? (
+                <div className="flex justify-end mt-2">
+                  <span className="text-xs bg-red-100 text-red-800 px-2 py-1 rounded-full">
+                    Click to activate
+                  </span>
+                </div>
+              ) : (
+                <div className="flex justify-end mt-2">
+                  <span className="text-xs bg-gray-100 text-gray-500 px-2 py-1 rounded-full">
+                    Enter players first
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </TabsContent>
