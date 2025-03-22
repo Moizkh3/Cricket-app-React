@@ -14,6 +14,22 @@ const TeamDisplaySection: React.FC<TeamDisplaySectionProps> = ({
 }) => {
   if (!visible) return null;
 
+  // If team2Players is empty and team1Players is not, this means we're in "batting order only" mode
+  const isBattingOrderOnly = team1Players.length > 0 && team2Players.length === 0;
+
+  if (isBattingOrderOnly) {
+    return (
+      <div className="grid grid-cols-1 gap-6">
+        <TeamCard 
+          teamColor="blue" 
+          teamName="Batting Order" 
+          players={team1Players}
+          isBattingOrderOnly={true}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <TeamCard 

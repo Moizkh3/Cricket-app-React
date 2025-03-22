@@ -44,14 +44,27 @@ const Home: React.FC = () => {
     }, 1000);
   };
   
-  const shuffleBattingOrder = () => {
-    if (!teamsGenerated) return;
-    
+  const shuffleBattingOrder = (inputPlayers?: string[]) => {
     setIsLoading(true);
     
     setTimeout(() => {
-      setTeam1(prevTeam => fisherYatesShuffle(prevTeam));
-      setTeam2(prevTeam => fisherYatesShuffle(prevTeam));
+      if (teamsGenerated) {
+        // If teams are already generated, shuffle both teams independently
+        setTeam1(prevTeam => fisherYatesShuffle(prevTeam));
+        setTeam2(prevTeam => fisherYatesShuffle(prevTeam));
+      } else {
+        // For batting order only mode
+        // Show a single consolidated list of all players in a shuffled order
+        const players = inputPlayers || [];
+        if (players.length < 2) {
+          showError('Please enter at least 2 player names.');
+          setIsLoading(false);
+          return;
+        }
+        setTeam1(fisherYatesShuffle(players));
+        setTeam2([]); // Empty team2 indicates batting order only mode
+        setTeamsGenerated(true);
+      }
       setIsLoading(false);
     }, 1000);
   };
