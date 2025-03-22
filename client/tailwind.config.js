@@ -2,8 +2,8 @@
 export default {
   darkMode: ["class"],
   content: [
-    "./client/src/**/*.{js,jsx,ts,tsx}",
-    "./client/index.html",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./index.html",
   ],
   theme: {
     container: {
@@ -70,5 +70,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 }
