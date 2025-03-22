@@ -27,7 +27,7 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 mb-8 transform transition-transform duration-300 hover:scale-[1.01]">
+    <div className="bg-white rounded-lg shadow-lg p-6 mb-8 transform transition-transform duration-300 hover:scale-[1.01] border-l-4 border-[#0E5626]">
       <h2 className="text-xl font-montserrat font-semibold mb-4 flex items-center">
         <i className="fas fa-users text-[#D32F2F] mr-2"></i> Enter Player Names
       </h2>
@@ -35,8 +35,8 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
       <div className="mb-4">
         <Textarea 
           id="nameInput" 
-          className="w-full h-40 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#4CAF50] focus:border-[#4CAF50] custom-scrollbar"
-          placeholder="Enter player names (one per line)&#10;Example:&#10;Virat Kohli&#10;Joe Root&#10;Steve Smith&#10;Kane Williamson"
+          className="w-full h-40 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#0E5626] focus:border-[#0E5626] custom-scrollbar"
+          placeholder="Enter player names (one per line)"
           value={playerNames}
           onChange={(e) => setPlayerNames(e.target.value)}
         />
@@ -45,24 +45,24 @@ const PlayerInputSection: React.FC<PlayerInputSectionProps> = ({
       <div className="flex flex-wrap gap-3 justify-center">
         <Button 
           id="generateTeamsBtn" 
-          className="px-6 py-3 bg-[#4CAF50] text-white rounded-md font-semibold hover:bg-[#3B8F3E] transition-colors flex items-center"
+          className="px-6 py-3 bg-[#0E5626] text-white rounded-md font-semibold hover:bg-[#083D1B] transition-colors flex items-center shadow-md"
           onClick={handleGenerateTeams}
         >
-          <i className="fas fa-random mr-2"></i> Generate Teams
+          <i className="fas fa-users-cog mr-2"></i> Generate Teams
         </Button>
         
         <Button 
           id="shuffleBattingOrderBtn" 
-          className="px-6 py-3 bg-[#D32F2F] text-white rounded-md font-semibold hover:bg-red-700 transition-colors flex items-center disabled:opacity-50"
+          className="px-6 py-3 bg-[#D32F2F] text-white rounded-md font-semibold hover:bg-[#B01C1C] transition-colors flex items-center disabled:opacity-50 shadow-md"
           onClick={onShuffleBattingOrder}
           disabled={!teamsGenerated}
         >
-          <i className="fas fa-sort-numeric-down mr-2"></i> Shuffle Batting Order
+          <i className="fas fa-random mr-2"></i> Shuffle Batting Order
         </Button>
         
         <Button 
           id="resetBtn" 
-          className="px-6 py-3 bg-gray-500 text-white rounded-md font-semibold hover:bg-gray-600 transition-colors flex items-center"
+          className="px-6 py-3 bg-[#1976D2] text-white rounded-md font-semibold hover:bg-[#0D47A1] transition-colors flex items-center shadow-md"
           onClick={() => {
             setPlayerNames('');
             onReset();
