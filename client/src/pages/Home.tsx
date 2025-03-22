@@ -139,11 +139,26 @@ const Home: React.FC = () => {
           <svg width="500" height="300" viewBox="0 0 500 300">
             <path 
               d="M460.9,243.3c-23.6,28.7-59.1,46.9-98.9,46.9c-70.8,0-128.2-57.4-128.2-128.2c0-54.9,34.5-101.7,83-120.1 c-6.9-0.9-13.9-1.4-21-1.4c-88.6,0-160.4,71.8-160.4,160.4c0,88.6,71.8,160.4,160.4,160.4c76.2,0,140.1-53.1,156.5-124.1" 
-              fill="#3B8F3E" 
-              stroke="#4CAF50" 
+              fill="#0E5626" 
+              stroke="#083D1B" 
               strokeWidth="4"
             />
             <circle cx="400" cy="120" r="30" fill="#D32F2F" />
+          </svg>
+        </div>
+        
+        {/* Cricket bat and ball */}
+        <div className="fixed bottom-0 left-0 opacity-15 pointer-events-none hidden md:block">
+          <svg width="200" height="200" viewBox="0 0 200 200">
+            {/* Cricket bat */}
+            <path d="M120,180 L150,120 L160,90 L155,70 C155,70 152,58 140,55 C128,52 120,60 120,60 L100,100 L120,180" fill="#964B00" />
+            <path d="M120,60 L100,100 L120,180 L110,180 L90,100 L110,60 C110,60 115,52 127,55 C139,58 142,70 142,70 L120,60" fill="#8B4513" />
+            
+            {/* Cricket ball */}
+            <circle cx="70" cy="110" r="20" fill="#D32F2F" />
+            {/* Ball stitching */}
+            <path d="M70,95 C75,95 80,100 80,110 C80,120 75,125 70,125 C65,125 60,120 60,110 C60,100 65,95 70,95" 
+                 fill="none" stroke="white" strokeWidth="1.5" />
           </svg>
         </div>
       </div>
