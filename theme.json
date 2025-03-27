@@ -1,6 +1,12 @@
 {
   "variant": "vibrant",
-  "primary": "#0E5626",
+  "primary": "#22C55E",
+  "secondary": "#16A34A",
+  "accent": "#15803D",
+  "background": "#DCFCE7",
+  "foreground": "#166534",
+  "muted": "#BBF7D0",
+  "card": "#FFFFFF",
   "appearance": "light",
-  "radius": 0.5
+  "radius": 0.75
 }

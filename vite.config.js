@@ -33,5 +33,6 @@ export default defineConfig({
         changeOrigin: true
       }
     }
-  }
+  },
+  root: 'client'
 });
